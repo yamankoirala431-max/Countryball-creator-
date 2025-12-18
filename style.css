@@ -1,0 +1,479 @@
+/* General Reset & Layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: center;
+}
+
+
+
+#homeScreen button {
+  display: block;
+  margin: 15px auto;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#homeScreen button:hover {
+  background-color: #0056b3;
+}
+
+/* Editor Layout */
+#imageCreatorScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.preview-section {
+  flex: 0 0 auto;
+  padding: 10px;
+  background: #fff;
+  text-align: center;
+}
+
+#editorCanvas {
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: white;
+  border: 3px solid #007bff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+#imageTab button {
+  margin: 5px;
+  padding: 10px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#imageTab button:hover {
+  background-color: #218838;
+}
+
+/* Scrollable Controls */
+.controls-section {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Tab Bar */
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tab-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content:not(.hidden),
+.tab-content.active {
+  display: block;
+}
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 10px; }
+
+/* Image Tab */
+#imageTab input[type="file"] {
+  margin: 10px 0;
+}
+
+#imageTab button {
+  margin: 5px;
+  padding: 10px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#imageTab button:hover {
+  background-color: #218838;
+}
+
+/* Eyes Tab */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.button-group button {
+  padding: 8px 14px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #5a6268;
+}
+
+.eye-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.eye-grid img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.eye-grid img.selected {
+  border-color: #007bff;
+}
+
+/* Sliders */
+.slider-container {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.slider-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.slider-container input[type="range"] {
+  width: 100%;
+}
+
+/* Template Tab */
+#templateTab button {
+  margin: 5px;
+  padding: 10px 16px;
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#templateTab button:hover {
+  background-color: #e0a800;
+}
+
+/* Crop Modal */
+#cropModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#cropModal .modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#cropImage {
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
+    
+   .keyframe-track {
+  display: flex;
+  overflow-x: auto;
+  padding: 8px;
+  background: #f4f4f4;
+  border-top: 1px solid #ccc;
+  max-height: 100px;
+}
+
+.keyframe-thumbnail {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-right: 8px;
+  border: 2px solid #999;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+}
+
+.keyframe-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-keyframe {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+} 
+    
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+.container {
+  text-align: center;
+}
+
+.img-button {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.upload-btn {
+  display: inline-block;
+  width: 80px; /* adjust based on your design */
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.upload-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps ratio, no stretch */
+  display: block;
+}
+.flag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.flag-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.flag-grid img:hover {
+  border-color: #888;
+}
+
+.flag-grid img.selected {
+  border-color: #00aaff;
+}
+
+.flag-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: #ffffff;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.25);
+  z-index: 999;
+  padding: 10px;
+}
+
+.flag-popup.hidden {
+  display: none;
+}
+
+.popup-header {
+  display: flex;
+  gap: 10px;
+}
+
+.popup-header input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.popup-header button {
+  font-size: 18px;
+  padding: 0 12px;
+}
+
+.popup-results {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.popup-results img {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#templateTab {
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#templateList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+  max-height: 300px;      /* ⬅️ prevents oversizing */
+  overflow-y: auto;       /* ⬅️ scroll instead of expanding */
+}
+
+.template-thumb {
+  width: 100%;
+  height: 80px;           /* ⬅️ fixed height */
+  border-radius: 6px;
+  background: no;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.template-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;    /* ⬅️ prevents stretching */
+}
+.tab-content {
+  max-height: 45vh;        /* 👈 adjust if needed */
+  overflow-y: auto;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .tab-content {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .controls-section {
+    overflow-y: auto;
+  }
+}
+
+#noInternet {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#noInternet.hidden {
+  display: none;
+}
+
+.no-internet-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}

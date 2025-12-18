@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countryball Creator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="editor-container">
+
+  <!-- ================= PREVIEW ================= -->
+  <div class="preview-section">
+    <canvas id="editorCanvas" width="400" height="400"></canvas>
+
+    <div class="preview-controls">
+   <input id="upload" type="file" accept="image/*" hidden />
+
+<label for="upload" class="upload-btn" title="Upload">
+  <img src="/assets/icons/upload.png" alt="Upload" /
+</label>
+
+<button id="flipSide" class="img-button" title="Flip">
+  <img src="/assets/icons/flip.png" alt="Flip" />
+</button>
+
+<button id="downloadBtn" class="img-button" title="Download">
+  <img src="/assets/icons/download.png" alt="Download" />
+</button>
+    </div>
+  </div>
+
+
+  <div id="flagSearchPopup" class="flag-popup hidden">
+    <div class="popup-header">
+      <input
+        type="text"
+        id="flagPopupSearch"
+        placeholder="Search flag..."
+        autocomplete="off"
+      />
+      <button id="closeFlagPopup">✕</button>
+    </div>
+
+    <div id="flagPopupResults" class="popup-results"></div>
+  </div>
+
+  <!-- ================= CONTROLS ================= -->
+  <div class="controls-section">
+
+    <!-- TAB BAR -->
+    <div class="tab-bar">
+            <button class="tab-button" data-tab="flagsTab">Flags</button>
+      <button class="tab-button" data-tab="eyesTab">Eyes</button>
+      <button class="tab-button" data-tab="templateTab">Template</button>
+      
+    </div>
+<div id="imagetab" class="tab-comtent displayed">
+    
+      <input id="upload" type="file" accept="image/*" hidden />
+
+<label for="upload" class="upload-btn" title="Upload">
+  <img src="/assets/icons/upload.png" alt="Upload" /
+</label>
+
+<button id="flipSide" class="img-button" title="Flip">
+  <img src="/assets/icons/flip.png" alt="Flip" />
+</button>
+
+<button id="downloadBtn" class="img-button" title="Download">
+  <img src="/assets/icons/download.png" alt="Download" />
+</button>
+
+
+<div id="flagsTab" class="tab-content hidden">
+    
+<button id="flagSearchBtn">🔍 Search Flags</button>
+  <input
+    type="text"
+    id="flagSearch"style="display:none"
+    placeholder="Quick filter..."
+    autocomplete="off"
+  />
+  <div id="flagThumbnails" class="flag-grid"></div>
+</div>
+   <div id="eyesTab" class="tab-content hidden">
+  
+      <div class="row">
+     
+        <button id="toggleAdjust">Adjust Eyes</button>
+      
+      </div>
+
+      <div id="eyeAdjustControls" class="hidden">
+        <label>Eye X</label>
+        <input id="eyeAdjustX" type="range" min="-150" max="150" value="0">
+
+        <label>Eye Y</label>
+        <input id="eyeAdjustY" type="range" min="-150" max="150" value="0">
+
+        <label>Eye Size</label>
+        <input id="eyeAdjustSize" type="range" min="50" max="500" value="200">
+      </div>
+          <label>Eye Style</label>
+      <select id="eyeStyleSelect">
+        <option value="eyes.s1">eyes.s1</option>
+        <option value="eyes.s2">eyes.s2</option>
+        <option value="eyes.s3">eyes.s3</option>
+      </select>
+
+      <div id="eyeThumbnails" class="eye-grid"></div>
+    </div>
+
+    </div>
+    <div id="templateTab" class="tab-content hidden">
+      <p>Templates</p>
+      <div id="templateList"></div>
+<div id="noInternet" class="hidden">
+  <div class="no-internet-box">
+    <h2>⚠ No Internet</h2>
+    <p>Please check your connection</p>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
